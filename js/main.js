@@ -163,52 +163,52 @@ if(galleryCarousel) {
 
 /* 5. Form
 ===================================*/
-(function ($, window, document, undefined) {
-	var $form = $('#contact-form');
-	$form.submit(function (e) {
-		// remove the error class
-		$('.form-group').removeClass('has-error');
-		$('.help-block').remove();
-		// get the form data
-		var formData = {
-			'name' : $('input[name="form-name"]').val(),
-			'email' : $('input[name="form-email"]').val(),
-			'number' : $('input[name="form-number"]').val(),
-			'select' : $("#sel1 option:selected").val()
-		};
-		// process the form
-		$.ajax({
-			type : 'POST',
-			url  : 'form.php',
-			data : formData,
-			dataType : 'json',
-			encode : true
-		}).done(function (data) {
-			// handle errors
-			if (!data.success) {
-				if (data.errors.name) {
-					$('#name-field').addClass('has-error');
-					$('#name-field').find('.col-sm-6').append('<span class="help-block">' + data.errors.name + '</span>');
-				}
-				if (data.errors.email) {
-					$('#email-field').addClass('has-error');
-					$('#email-field').find('.col-sm-6').append('<span class="help-block">' + data.errors.email + '</span>');
-				}
-				if (data.errors.number) {
-					$('#number-field').addClass('has-error');
-					$('#number-field').find('.col-sm-6').append('<span class="help-block">' + data.errors.subject + '</span>');
-				}
-			} else {
-				// display success message
-				$form.html('<div class="message-success">' + data.message + '</div>');
-			}
-		}).fail(function (data) {
-			// for debug
-			// console.log(data);
-		});
-		e.preventDefault();
-	});
-}(jQuery, window, document));
+// (function ($, window, document, undefined) {
+// 	var $form = $('#contact-form');
+// 	$form.submit(function (e) {
+// 		// remove the error class
+// 		$('.form-group').removeClass('has-error');
+// 		$('.help-block').remove();
+// 		// get the form data
+// 		var formData = {
+// 			'name' : $('input[name="form-name"]').val(),
+// 			'email' : $('input[name="form-email"]').val(),
+// 			'number' : $('input[name="form-number"]').val(),
+// 			'select' : $("#sel1 option:selected").val()
+// 		};
+// 		// process the form
+// 		$.ajax({
+// 			type : 'POST',
+// 			url: 'http://formspree.io/brugms2@gmail.com',
+// 			data : formData,
+// 			dataType : 'json',
+// 			encode : true
+// 		}).done(function (data) {
+// 			// handle errors
+// 			if (!data.success) {
+// 				if (data.errors.name) {
+// 					$('#name-field').addClass('has-error');
+// 					$('#name-field').find('.col-sm-6').append('<span class="help-block">' + data.errors.name + '</span>');
+// 				}
+// 				if (data.errors.email) {
+// 					$('#email-field').addClass('has-error');
+// 					$('#email-field').find('.col-sm-6').append('<span class="help-block">' + data.errors.email + '</span>');
+// 				}
+// 				if (data.errors.number) {
+// 					$('#number-field').addClass('has-error');
+// 					$('#number-field').find('.col-sm-6').append('<span class="help-block">' + data.errors.subject + '</span>');
+// 				}
+// 			} else {
+// 				// display success message
+// 				$form.html('<div class="message-success">' + data.message + '</div>');
+// 			}
+// 		}).fail(function (data) {
+// 			// for debug
+// 			// console.log(data);
+// 		});
+// 		e.preventDefault();
+// 	});
+// }(jQuery, window, document));
 /* 6. Select arrow
 =======================================*/
 $(document).on('click', function(event) {
@@ -226,33 +226,12 @@ $('.select-wrap').on('click', 'select', function() {
 var map;
 function initMap() {
 	map = new google.maps.Map(document.getElementById('map_canvas'), {
-		center: { lat: -34.731318, lng: -56.269478 },
+		center: { lat: -34.728318, lng: -56.269478 },
 		zoom: 13,
 		scrollwheel: false,
 		mapTypeControl: false
 	});
-	// var contentString = '<div id="content">' +
-	// 	'<div id="siteNotice">' +
-	// 	'</div>' +
-	// 	'<h1 id="firstHeading" class="firstHeading">Uluru</h1>' +
-	// 	'<div id="bodyContent">' +
-	// 	'<p><b>Uluru</b>, also referred to as <b>Ayers Rock</b>, is a large ' +
-	// 	'sandstone rock formation in the southern part of the ' +
-	// 	'Northern Territory, central Australia. It lies 335&#160;km (208&#160;mi) ' +
-	// 	'south west of the nearest large town, Alice Springs; 450&#160;km ' +
-	// 	'(280&#160;mi) by road. Kata Tjuta and Uluru are the two major ' +
-	// 	'features of the Uluru - Kata Tjuta National Park. Uluru is ' +
-	// 	'sacred to the Pitjantjatjara and Yankunytjatjara, the ' +
-	// 	'Aboriginal people of the area. It has many springs, waterholes, ' +
-	// 	'rock caves and ancient paintings. Uluru is listed as a World ' +
-	// 	'Heritage Site.</p>' +
-	// 	'<p>Attribution: Uluru, <a href="https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">' +
-	// 	'https://en.wikipedia.org/w/index.php?title=Uluru</a> ' +
-	// 	'(last visited June 22, 2009).</p>' +
-	// 	'</div>' +
-	// 	'</div>';
-
-	var contentString = 'Boda Tavo & Anita';
+	var contentString = '<b>Boda Tavo & Anita</b><br><a href="https://www.google.com/maps/dir//-34.718532,-56.290801/@-34.718532,-56.290801,12z?hl=es-ES">Cómo llegar</a>';
 
 	var infowindow = new google.maps.InfoWindow({
 		content: contentString
@@ -269,6 +248,32 @@ function initMap() {
 }
 /* 8. Gifts list
 ==========================================*/
+// Get the modal
+var modal = document.getElementById('myModal');
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on the button, open the modal 
+btn.onclick = function () {
+	modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function () {
+	modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function (event) {
+	if (event.target == modal) {
+		modal.style.display = "none";
+	}
+}
+
 $(function () {
 	$('.list-group.checked-list-box .list-group-item').each(function () {
 		// Settings

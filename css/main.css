@@ -1517,8 +1517,52 @@ nav.navbar.navbar-default.pink-color .navbar-nav li a:hover:after {
 }
 /* -3.10. Gifts
 -------------------------------------------------------------- */
+.gifts-registry.container {
+  position: relative;
+  /* width: 50%; */
+}
+
+.gifts-registry.image {
+  opacity: 1;
+  /* display: block;
+  width: 100%; */
+  height: auto;
+  transition: .5s ease;
+  backface-visibility: hidden;
+  border: 3px solid #BCBCB9;
+  padding: 15px;
+  /* -webkit-filter: grayscale(100%);
+  filter: grayscale(100%); */
+}
+
+.gifts-registry.middle {
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.gifts-registry.container:hover .image {
+  opacity: 0.3;
+}
+
+.gifts-registry.container:hover .middle {
+  opacity: 1;
+}
+
+.gifts-registry.text {
+  background-color: #e06175;
+  color: white;
+  font-size: 16px;
+  padding: 16px 32px;
+}
+
 .gifts-registry img {
-	max-width: 100%;
+	max-width: 400px;
 }
 .gifts-registry.gr-img-block a img {
 	border: 3px solid #BCBCB9;
@@ -1551,7 +1595,7 @@ nav.navbar.navbar-default.pink-color .navbar-nav li a:hover:after {
 }
 .gifts-registry .gifts-list .list-group .line {
 	width: 2px;
-	height: calc(100% - 40px);
+	/* height: calc(100% - 40px); */
 	background: #bcbcba;
 	position: absolute;
 	top: 20px;
