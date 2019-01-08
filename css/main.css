@@ -1562,7 +1562,7 @@ nav.navbar.navbar-default.pink-color .navbar-nav li a:hover:after {
 }
 
 .gifts-registry img {
-	max-width: 400px;
+	max-width: 80%;
 }
 .gifts-registry.gr-img-block a img {
 	border: 3px solid #BCBCB9;
